@@ -1,0 +1,21 @@
+body {
+    background-color: dodgerblue;
+}
+
+.arrange {
+    min-height: 100vh;
+    background-color: dodgerblue;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.question-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.quiz-card {
+    width: 30rem;
+}
