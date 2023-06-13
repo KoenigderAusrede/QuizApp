@@ -1,79 +1,79 @@
 let questions = [
     {
-      "question": "Welche Zutat wird traditionell für die Herstellung von Pesto Genovese verwendet?",
-      "answers": [
-        "Basilikum",
-        "Spinat",
-        "Rucola",
-        "Petersilie"
-      ],
-      "right_answer": "Basilikum"
+        "question": "Welche Zutat wird traditionell für die Herstellung von Pesto Genovese verwendet?",
+        "answers": [
+            "Basilikum",
+            "Spinat",
+            "Rucola",
+            "Petersilie"
+        ],
+        "right_answer": "Basilikum"
     },
     {
-      "question": "Welche Temperatur sollte ein perfekt medium gebratenes Steak haben?",
-      "answers": [
-        "54°C",
-        "60°C",
-        "66°C",
-        "72°C"
-      ],
-      "right_answer": "60°C"
+        "question": "Welche Temperatur sollte ein perfekt medium gebratenes Steak haben?",
+        "answers": [
+            "54°C",
+            "60°C",
+            "66°C",
+            "72°C"
+        ],
+        "right_answer": "60°C"
     },
     {
-      "question": "Welches Gewürz ist eine Hauptzutat im indischen Curry?",
-      "answers": [
-        "Kurkuma",
-        "Koriander",
-        "Kreuzkümmel",
-        "Kardamom"
-      ],
-      "right_answer": "Kreuzkümmel"
+        "question": "Welches Gewürz ist eine Hauptzutat im indischen Curry?",
+        "answers": [
+            "Kurkuma",
+            "Koriander",
+            "Kreuzkümmel",
+            "Kardamom"
+        ],
+        "right_answer": "Kreuzkümmel"
     },
     {
-      "question": "Welche Zutat ist ein wichtiger Bestandteil von Guacamole?",
-      "answers": [
-        "Avocado",
-        "Tomate",
-        "Zwiebel",
-        "Käse"
-      ],
-      "right_answer": "Avocado"
+        "question": "Welche Zutat ist ein wichtiger Bestandteil von Guacamole?",
+        "answers": [
+            "Avocado",
+            "Tomate",
+            "Zwiebel",
+            "Käse"
+        ],
+        "right_answer": "Avocado"
     },
     {
-      "question": "Welche Art von Reis wird traditionell für Sushi verwendet?",
-      "answers": [
-        "Basmati",
-        "Jasmin",
-        "Sushi-Reis",
-        "Wildreis"
-      ],
-      "right_answer": "Sushi-Reis"
+        "question": "Welche Art von Reis wird traditionell für Sushi verwendet?",
+        "answers": [
+            "Basmati",
+            "Jasmin",
+            "Sushi-Reis",
+            "Wildreis"
+        ],
+        "right_answer": "Sushi-Reis"
     },
     {
-      "question": "Welches Lebensmittel ist die Hauptzutat in Hummus?",
-      "answers": [
-        "Kichererbsen",
-        "Linsen",
-        "Bohnen",
-        "Erbsen"
-      ],
-      "right_answer": "Kichererbsen"
+        "question": "Welches Lebensmittel ist die Hauptzutat in Hummus?",
+        "answers": [
+            "Kichererbsen",
+            "Linsen",
+            "Bohnen",
+            "Erbsen"
+        ],
+        "right_answer": "Kichererbsen"
     },
     {
-      "question": "Welche Zutat wird verwendet, um Brot zu lockern und aufgehen zu lassen?",
-      "answers": [
-        "Hefe",
-        "Salz",
-        "Zucker",
-        "Backpulver"
-      ],
-      "right_answer": "Hefe"
+        "question": "Welche Zutat wird verwendet, um Brot zu lockern und aufgehen zu lassen?",
+        "answers": [
+            "Hefe",
+            "Salz",
+            "Zucker",
+            "Backpulver"
+        ],
+        "right_answer": "Hefe"
     }
-  ];
+];
 
-let currentquestion = 0
-let answers = questions[currentquestion].answers
-let right_answer = questions[currentquestion].right_answer
+let currentquestion = 0;
+let answers = questions[currentquestion].answers;
+let right_answer = questions[currentquestion].right_answer;
 
 function init() {
     document.getElementById('numberofquestions').innerHTML = questions.length;
@@ -82,6 +82,8 @@ function init() {
 
 function showQuestion() {
     let question = questions[currentquestion];
+    answers = question.answers;
+    right_answer = question.right_answer;
     document.getElementById('questiontext').innerHTML = question['question']
     document.getElementById('answer_1').innerHTML = answers[0]
     document.getElementById('answer_2').innerHTML = answers[1]
@@ -112,4 +114,20 @@ function answer(element) {
         document.getElementById(idOfRightAnswer).parentNode.classList.add('bg-success')
     }
     document.getElementById('next-button').disabled = false;
+}
+
+function nextQuestion() {
+    currentquestion++;
+    document.getElementById('currentquestion').innerHTML = currentquestion + 1;
+    showQuestion();
+    
+    let success = document.getElementsByClassName("bg-success");
+    while (success.length > 0) {
+        success[0].classList.remove("bg-success");
+    }
+    let danger = document.getElementsByClassName("bg-danger");
+    while (danger.length > 0) {
+        danger[0].classList.remove("bg-danger");
+    }
+    document.getElementById('next-button').disabled = true;
 }
