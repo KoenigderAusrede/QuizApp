@@ -28,3 +28,25 @@ body {
 .bg-success, .bg-danger {
     color: white !important;
 }
+
+.endcard {
+    display: flex;
+    justify-content: center;
+}
+
+.btn-secondary {
+    width: fit-content;
+    align-self: center;
+    margin-top: 15px;
+    margin-bottom: 15px;
+}
+
+.center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.progress-bar{
+    width: 0%;
+}
